@@ -5,10 +5,12 @@ import css from "./ContactForm.module.css";
 
 const UserSchema = Yup.object().shape({
   name: Yup.string()
+    .trim()
     .min(3, "Too Short! Min 3 chars")
     .max(50, "Too Long! Max 50 chars")
     .required("Required"),
   number: Yup.string()
+    .trim()
     .min(3, "Too Short! Min 3 chars")
     .max(50, "Too Long! Max 50 chars")
     .required("Required"),
