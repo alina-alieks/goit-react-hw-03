@@ -19,14 +19,20 @@ const UserSchema = Yup.object().shape({
 export default function ContactForm({ onAdd }) {
   const handelSubmit = (values, actions) => {
     console.log(values);
-    onAdd(values);
+
+    const newValues = {
+      id: nanoid(),
+      name: values.name.trim(),
+      number: values.number.trim(),
+    };
+    onAdd(newValues);
+    console.log(newValues);
     actions.resetForm();
   };
 
   return (
     <Formik
       initialValues={{
-        id: nanoid(),
         name: "",
         number: "",
       }}
